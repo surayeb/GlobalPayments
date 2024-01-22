@@ -1,6 +1,6 @@
 package com.GlobalPayments.pages;
 
-import com.GlobalPayments.utilities.ConfigurationReader;
+import com.GlobalPayments.utilities.BrowserUtil;
 import com.GlobalPayments.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -20,25 +20,25 @@ public class WorkDaysPage {
     @FindBy(xpath = "//input[@id='input-5']")
     public WebElement passwordBox;
 
-    @FindBy(xpath = "//div[@aria-label='Sign In']")
+    @FindBy(css = "button[data-automation-id='signInSubmitButton']")
     public WebElement signInButton;
 
-    @FindBy(xpath = "//button[normalize-space()='Accept Cookies']")
+    @FindBy(css = "div[data-automation-id='click_filter']")
+    public WebElement signInClickButton;
+    @FindBy(xpath = "//button[.='Accept Cookies']")
     public WebElement cookies3;
 
-    @FindBy(xpath = "//h1[@class='css-1imaysj']")
-    public WebElement heading2;
-/*
-    public void loginAsUser(){
-        Driver.getDriver().get(ConfigurationReader.getProperty("url2"));
-        emailAddressBox.sendKeys(ConfigurationReader.getProperty("email"));
-        passwordBox.sendKeys(ConfigurationReader.getProperty("password"));
-        signInButton.click();
+
+
+    public void login(String email, String password) {
+        emailAddressBox.click();
+        emailAddressBox.sendKeys(email);
+        passwordBox.click();
+        passwordBox.sendKeys(password);
+        BrowserUtil.scrollToElement(signInButton);
+        BrowserUtil.hover(signInButton);
+        BrowserUtil.sleep(2);
+        signInClickButton.click();
+
     }
-
- */
-
-
-
-
 }

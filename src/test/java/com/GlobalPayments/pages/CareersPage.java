@@ -19,14 +19,13 @@ public class CareersPage extends BasePage{
     public WebElement cookies2;
 
 
-    @FindBy(xpath = "//a[.='Lead Software Development Engineer in Test']")
+    @FindBy(xpath = "//div[2]/div[1]/div[1]/h2[1]/a[1]")
     public WebElement actualJobTitle;
 
     @FindBy(xpath = "//a[@id='js-apply-external']")
     public WebElement applyButton;
 
-    @FindBy(xpath = "//h3[normalize-space()='Lead Software Development Engineer in Test']")
-    public WebElement heading;
+
 
 
 }

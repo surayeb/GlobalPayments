@@ -40,6 +40,20 @@ public class BrowserUtil {
 
     }
 
+    public static void switchWindow(String title){
+
+        Set<String> allWindowHandles = Driver.getDriver().getWindowHandles();
+
+        for (String each : allWindowHandles) {
+            Driver.getDriver().switchTo().window(each);
+            if (Driver.getDriver().getTitle().contains(title)){
+                break;
+            }
+        }
+
+
+    }
+
     public static void verifyTitle(String expectedTitle){
         String actualTitle = Driver.getDriver().getTitle();
 
